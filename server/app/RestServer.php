@@ -6,10 +6,7 @@ class RestServer
 
     public function run()
     {
-       // $this->url = list($s, $server, $api, $dir, $index, $class, $data) = explode("/", $_SERVER['REQUEST_URI'], 7);
       $this->url = list($s, $user, $REST, $server, $api, $dir, $index, $class, $data) = explode("/", $_SERVER['REQUEST_URI'], 7);
-
-        var_dump($this->url);
         $this->reqMethod = $_SERVER['REQUEST_METHOD'];
 
         switch ($this->reqMethod)
@@ -24,7 +21,7 @@ class RestServer
     {
         if(method_exists($this, $classMethod))
         {
-            echo $this->$classMethod($param);
+            var_dump($this->$classMethod($param));
         }
         else
         {
