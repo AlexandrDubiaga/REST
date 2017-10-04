@@ -47,6 +47,7 @@ class Cars extends RestServer
     }
      public function delete($data )
     {
+         header("/clients/anne HTTP/1.1 ".$data);
          $id = $data[0];
         var_dump($id);
         
