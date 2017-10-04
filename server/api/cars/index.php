@@ -35,7 +35,7 @@ class Cars extends RestServer
            $price = $_POST['price'];
            $link = mysqli_connect('localhost', 'user2', 'tuser2', 'user2');
            mysqli_set_charset($link,'utf8');
-           $result = mysqli_query($link, "INSERT into AutoShop VALUES ('$id','$marka','$model','$year','$engine','$speed','$price')");
+           $result = mysqli_query($link, "INSERT into AutoShop(id,marka,model,year_car,engine_capacity,max_speed,price) VALUES ('$id','$marka','$model','$year','$engine','$speed','$price')");
             if($result)
             {
                 return true;
