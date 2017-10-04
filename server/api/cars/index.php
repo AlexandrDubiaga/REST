@@ -13,7 +13,7 @@ class Cars extends RestServer
 
     public function getCars($data = false)
     {
-        var_dump($data[1]);
+        var_dump($data[0]);
        
         
          $result = mysqli_query($this->link, "SELECT * FROM AutoShop");
