@@ -14,12 +14,13 @@ class RestServer
                 case 'GET':
                 $this->setMethod('get'.ucfirst($dir), explode('/', $index));
                 break;
-                case 'POST':
-                $this->setMethod('post'.ucfirst($dir), explode('/', $index));
-                break;
                 case 'DELETE':
                 $this->setMethod('delete'.ucfirst($dir), explode('/', $index));
                 break;
+                case 'POST':
+                $this->setMethod('post'.ucfirst($dir), explode('/', $index));
+                break;
+              
         }
         
         
