@@ -28,13 +28,8 @@ class RestServer
 
     public function setMethod($classMethod, $param=false)
     {
-        if(method_exists($this, $classMethod))
-        {
+        
             var_dump($this->$classMethod($param));
-        }
-        else
-        {
-            echo 'ERROR!';
-        }
+      
     }
 }
