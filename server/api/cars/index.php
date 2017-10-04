@@ -9,6 +9,7 @@ class Cars extends RestServer
 
     public function getCars($data = false)
     {
+        echo "Test" .$data;
          $link = mysqli_connect('localhost', 'user2', 'tuser2', 'user2');
         mysqli_set_charset($link,'utf8');
          $result = mysqli_query($link, "SELECT * FROM AutoShop");
