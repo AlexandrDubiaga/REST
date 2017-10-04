@@ -45,7 +45,7 @@ class Cars extends RestServer
          }
          return false;
     }
-     public function deleteCar($data = false)
+     public function delete($data = false)
     {
           $x =  $data[0];
         
