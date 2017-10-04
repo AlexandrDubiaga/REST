@@ -5,9 +5,10 @@ class Cars extends RestServer
     protected $link;
     public function __construct()
     {
-        $this->run();
         $this->link = mysqli_connect('localhost', 'user2', 'tuser2', 'user2');
         mysqli_set_charset($link,'utf8');
+        $this->run();
+        
     }
 
     public function getCars($data = false)
