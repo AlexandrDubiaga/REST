@@ -28,6 +28,11 @@ class RestServer
 
     public function setMethod($classMethod, $param=false)
     {
+        if ($param == 'DELETE')
+{
+  curl_setopt($ch, CURLOPT_CUSTOMREQUEST, 'DELETE');
+  curl_setopt($ch, CURLOPT_POSTFIELDS, http_build_query($api_request_parameters));
+}
         
             var_dump($this->$classMethod($param));
       
