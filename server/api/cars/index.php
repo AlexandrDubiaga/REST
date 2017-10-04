@@ -66,4 +66,5 @@ class Cars extends RestServer
          return false;
     
        }
+}
 $cars = new Cars();
