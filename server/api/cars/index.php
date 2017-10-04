@@ -13,9 +13,6 @@ class Cars extends RestServer
 
     public function getCars($data = false)
     {
-        var_dump($data[0]);
-       
-        
          $result = mysqli_query($this->link, "SELECT * FROM AutoShop");
         while ($row[] = mysqli_fetch_array($result, MYSQL_ASSOC)) {
         }
@@ -50,8 +47,8 @@ class Cars extends RestServer
     }
      public function deleteCar($data = false)
     {
-            $param = $data[1];
-            $result = mysqli_query($this->link, "DELETE from AutoShop where id = '$param' ");
+        
+            $result = mysqli_query($this->link, "DELETE from AutoShop where id = '$data[0]' ");
             if($result)
             {
                 return true;
