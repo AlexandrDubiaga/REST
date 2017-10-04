@@ -11,7 +11,7 @@ class RestServer
 
         switch ($this->reqMethod)
         {
-            case 'GET':
+                case 'GET':
                 $this->setMethod('get'.ucfirst($dir), explode('/', $index));
                 break;
                 case 'POST':
