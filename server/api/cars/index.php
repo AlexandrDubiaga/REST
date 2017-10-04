@@ -47,6 +47,7 @@ class Cars extends RestServer
     }
      public function deleteCar($data = false)
     {
+         //$data = $SESSION[]
         
             $result = mysqli_query($this->link, "DELETE from AutoShop where id = '$data[0]' ");
             if($result)
