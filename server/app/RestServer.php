@@ -15,6 +15,10 @@ class RestServer
                 $this->setMethod('get'.ucfirst($dir), explode('/', $index));
                 break;
         }
+        case 'POST':
+                $this->setMethod('post'.ucfirst($dir), explode('/', $index));
+                break;
+        }
     }
 
     public function setMethod($classMethod, $param=false)
