@@ -6,7 +6,7 @@ class Cars extends RestServer
     public function __construct()
     {
         $this->link = mysqli_connect('localhost', 'user2', 'tuser2', 'user2');
-        mysqli_set_charset($link,'utf8');
+        mysqli_set_charset($this->link,'utf8');
         $this->run();
         
     }
@@ -44,11 +44,10 @@ class Cars extends RestServer
             {
                 return true;
             }
-         else
-         {
-            return false;
-         }
-            
+            else
+            {
+                return false;
+            }  
          }
          return false;
     }
