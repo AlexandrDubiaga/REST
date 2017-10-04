@@ -47,10 +47,9 @@ class Cars extends RestServer
     }
      public function deleteCar($data = false)
     {
-            $SESSION['data'] =  $data[0];
-         $x =  $SESSION['data'];
+          $x =  $data[0];
         
-            $result = mysqli_query($this->link, "DELETE from AutoShop where id = '$x' ");
+            $result = mysqli_query("DELETE from AutoShop where id = '$x' ");
             if($result)
             {
                 return true;
@@ -63,4 +62,6 @@ class Cars extends RestServer
     
        }
 }
+
+       
 $cars = new Cars();
