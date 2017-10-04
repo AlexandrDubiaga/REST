@@ -18,7 +18,7 @@ class RestServer
                 $this->setMethod('post'.ucfirst($dir), explode('/', $index));
                 break;
         }
-        }
+        
         
     }
 
