@@ -49,7 +49,7 @@ class RestServer
         switch ($this->encode)
         {
             case '.json':
-               echo json_encode($data);
+               return json_encode($data);
                 break;
             case '.txt':
                 return 'TXT';
