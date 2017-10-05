@@ -17,8 +17,8 @@ class Cars extends RestServer
         $result = mysqli_query($this->link, "SELECT * FROM AutoShop");
         while ($row[] = mysqli_fetch_array($result, MYSQL_ASSOC)) {
         }
-       $ad = array('sefse'=>'sefsef','awdawrsfg'=>'sefreg4','rgrtgrt'=>'drgdrg');
-       print_r($this->encodedData($ad));
+       //$ad = array('sefse'=>'sefsef','awdawrsfg'=>'sefreg4','rgrtgrt'=>'drgdrg');
+       print_r($this->encodedData($row));
      
 
        
