@@ -94,23 +94,51 @@ class RestServer
     public function convertToXml($data, $root)
     {
         header("Content-type: text/xml");
-               $xml = new SimpleXMLElement( '<' . $root . '/>' );
+    $xml = new SimpleXMLElement( '<' . $root . '/>' );
   foreach( $data as $element=>$value ) {
     $element = is_numeric( $element ) ? $root : $element;
     if ( is_array( $value ) ) {
-      if (is_numeric( $value ) ) {
-        array2xml( $value, $xml, $element );
+      if ( $this->is_numeric_keys( $value ) ) {
+        $this->array2xml( $value, $xml, $element );
       } else {
-        $element = $xml->addChild( $element );
-        array2xml( $value, $$element, $element );
+        $$element = $xml->addChild( $element );
+         $this->array2xml( $value, $$element, $element );
       }
     } else {
       $xml->addChild( $element, $value );
     }
    }
   return $xml->asXML();
-          
+}
+ 
+function array2xml( $array, &$xml, $root ) {
+  foreach( $array as $element=>$value ) {
+    $element = is_numeric( $element ) ? $root : $element;
+    if ( is_array( $value ) ) {
+      if (  $this->is_numeric_keys( $value ) ) {
+         $this->array2xml( $value, $xml, $element );
+      } else {
+        $$element = $xml->addChild( $element );
+         $this->array2xml( $value, $$element, $element );
+      }
+    } else {
+      if ( preg_match( '/^@/', $element) ) {
+        $xml->addAttribute( str_replace( '@', '', $element ), $value );
+      } else {
+        $xml->addChild( $element, $value );
+      }
     }
+  }
+}
+ 
+function is_numeric_keys( $array ) {
+  foreach( $array as $key=>$value ) {
+    if ( ! is_numeric( $key ) ) {
+      return false;
+    }
+  }
+  return true;
+}
     
 }
 
