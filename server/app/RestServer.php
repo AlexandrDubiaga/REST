@@ -76,7 +76,7 @@ class RestServer
          print_r($data);
         
     }
-     public function convertToHtml($data)
+   /*  public function convertToHtml($data)
     {
             //header("Content-Type: text/html");
             $out = '<li>';
@@ -89,7 +89,7 @@ class RestServer
             }
            $out = '</li>';
          echo '<ul>'.convertToHtml($data).'</ul>';
-    }    
+    }  */  
     
      public function convertToXml($data)
     {
@@ -107,5 +107,4 @@ class RestServer
     }
     
 }
-}
-}
+
