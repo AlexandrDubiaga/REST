@@ -65,7 +65,7 @@ class RestServer
         }
     }
     
-    publuc function convertToJson($data)
+    public function convertToJson($data)
     {
         header('Content-Type: application/json');
         return json_encode($data);
