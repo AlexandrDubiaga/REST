@@ -5,7 +5,7 @@ class Cars extends RestServer
     protected $link;
     public function __construct()
     {
-        $this->link = mysqli_connect('localhost', 'user2', 'tuser2', 'user2');
+        $this->link = mysqli_connect('10.3.149.74', 'bti', 'bti', 'work');
         mysqli_set_charset($this->link,'utf8');
         $this->run();
         
@@ -45,13 +45,10 @@ class Cars extends RestServer
          }
          return false;
     }
-     public function delete($data )
+     public function deleteCars($url)
     {
-        
-         $id = $data[0];
-        var_dump($id);
-        
-            $result = mysqli_query($this->link, "DELETE from AutoShop where id = '$id'");
+        echo "Alex";
+            $result = mysqli_query($this->link, "DELETE from AutoShop where id = 2 ");
             if($result)
             {
                 return true;
@@ -61,8 +58,18 @@ class Cars extends RestServer
                 return false;
             }  
          return false;
-    
        }
+    public function putCars($url, $param)
+    {
+        $id = $param['id'];
+        if(isset($param['id']) && isset($param['marka']) && isset($param['model']) && isset($param['year_car']) && isset($param['engine_capacity']) && isset($param['color']) && isset($param['max_speed'])  && isset($param['price'])) {
+            $query = mysqli_query($this->link, "UPDATE AutoShop SET marka = '$param[marka]', model = '$param[model]', year_car = '$param[year_car]', engine_capacity = '$param[engine_capacity]', color = '$param[color]', max_speed = '$param[max_speed]', price = '$param[price]' WHERE id = '$id'");
+            if ($query)
+                return true;
+            else
+                return false;
+        }
+    }
 }
 
        
