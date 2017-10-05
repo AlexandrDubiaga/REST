@@ -68,7 +68,7 @@ class RestServer
     public function convertToJson($data)
     {
         header('Content-Type: application/json');
-        return json_encode($data);
+       echo json_encode($data);
     }
      public function convertToTxt($data)
     {
