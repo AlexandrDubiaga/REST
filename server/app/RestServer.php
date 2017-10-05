@@ -18,12 +18,12 @@ class RestServer
         switch ($this->reqMethod)
         {
                 case 'GET':
+                var_dump($index);
                 $this->setMethod('get'.ucfirst($dir), explode('/', $index));
                 break;
                 case 'DELETE':
-                 $this->params = explode('/', $data);
-                var_dump($data);
-                 $this->setMethod('delete'.ucfirst($dir));
+                $this->params = explode('/', $index);
+                $this->setMethod('delete'.ucfirst($dir));
                 break;
                 case 'POST':
                 $this->setMethod('post'.ucfirst($dir), explode('/', $index));
