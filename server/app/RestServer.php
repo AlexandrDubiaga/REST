@@ -23,7 +23,7 @@ class RestServer
                 case 'DELETE':
                 $this->params = explode('/', '1');
                
-                $this->setMethod('delete'.ucfirst($dir));
+                $this->setMethod('delete'.ucfirst($dir),  $this->params);
                  var_dump( $this->params);
                 break;
                 case 'POST':
