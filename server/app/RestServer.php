@@ -72,12 +72,13 @@ class RestServer
     }
      public function convertToTxt($data)
     {
-         header("Content-Type: text/plain");
+         header("Content-Type: text/javascript");
          print_r($data);
         
     }
      public function convertToHtml($data)
     {
+            header("Content-Type: text/html");
             $out = '<li>';
             foreach($data as $v){
                 if(is_array($v)){
@@ -92,8 +93,20 @@ class RestServer
     
      public function convertToXml($data)
     {
+         
+            header("Content-Type: application/xml");
+            $var = json_encode($data);
+            $xmlstr = <<<XML
+            <?xml version='1.0' standalone='yes'?>
+                <data>
+                    $var
+                </data>
+                XML;
+                $xml = new \SimpleXMLElement($xmlstr);
+                print_r($xml->asXML());
+              }
         
     
-    }
+    
    
 }
