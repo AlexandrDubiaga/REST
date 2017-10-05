@@ -88,7 +88,7 @@ class RestServer
             }
             }
            $out = '</li>';
-         echo '<ul>'.convertToHtml($data).'</ul>';
+         return '<ul>'.convertToHtml($data).'</ul>';
     }  
     
     public function convertToXml($data)
