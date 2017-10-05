@@ -98,10 +98,10 @@ class RestServer
   foreach( $data as $element=>$value ) {
     $element = is_numeric( $element ) ? $root : $element;
     if ( is_array( $value ) ) {
-      if ( is_numeric_keys( $value ) ) {
+      if (is_numeric( $value ) ) {
         array2xml( $value, $xml, $element );
       } else {
-        $$element = $xml->addChild( $element );
+        $element = $xml->addChild( $element );
         array2xml( $value, $$element, $element );
       }
     } else {
