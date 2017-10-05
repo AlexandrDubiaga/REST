@@ -78,7 +78,7 @@ class RestServer
     }
      public function convertToHtml($data)
     {
-            //header("Content-Type: text/html");
+            header(" Content-Type: application/x-www-form-urlencoded");
             $out = '<li>';
             foreach($data as $v){
                 if(is_array($v)){
@@ -93,16 +93,7 @@ class RestServer
     
     public function convertToXml($data)
     {
-            header("Content-Type: application/xml");
-            $var = json_encode($data);
-            $xmlstr = <<<XML
-            <?xml version='1.0' standalone='yes'?>
-                <data>
-                    $var;
-                </data>
-                XML;
-                $xml = new \SimpleXMLElement($xmlstr);
-                print_r($xml->asXML());
+          
     }
     
 }
