@@ -101,8 +101,8 @@ class RestServer
       if ( $this->is_numeric_keys( $value ) ) {
         $this->array2xml( $value, $xml, $element );
       } else {
-        $$element = $xml->addChild( $element );
-         $this->array2xml( $value, $$element, $element );
+        $elementS = $xml->addChild( $element );
+         $this->array2xml( $value, $elementS, $element );
       }
     } else {
       $xml->addChild( $element, $value );
@@ -118,8 +118,8 @@ function array2xml( $array, &$xml, $root ) {
       if (  $this->is_numeric_keys( $value ) ) {
          $this->array2xml( $value, $xml, $element );
       } else {
-        $$element = $xml->addChild( $element );
-         $this->array2xml( $value, $$element, $element );
+        $elementS = $xml->addChild( $element );
+         $this->array2xml( $value, $elementS, $element );
       }
     } else {
       if ( preg_match( '/^@/', $element) ) {
