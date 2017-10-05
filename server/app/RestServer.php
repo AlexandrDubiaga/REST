@@ -41,7 +41,7 @@ class RestServer
 
     public function setMethod($classMethod, $param=false, $outPutt = false)
     {
-                //var_dump($this->$classMethod($param,$outPutt));
+                echo $this->$classMethod($param,$outPutt);
       
     }
      protected function encodedData($data)
