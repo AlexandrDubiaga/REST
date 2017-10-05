@@ -5,7 +5,7 @@ class Cars extends RestServer
     protected $link;
     public function __construct()
     {
-        $this->link = mysqli_connect('10.3.149.74', 'bti', 'bti', 'work');
+        $this->link = mysqli_connect('localhost', 'user2', 'tuser2', 'user2');
         mysqli_set_charset($this->link,'utf8');
         $this->run();
         
