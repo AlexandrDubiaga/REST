@@ -58,7 +58,7 @@ class RestServer
                 return  $this->convertToHtml($data);
                 break;
             case '.xml':
-                 return $this->convertToXml($data);
+                 return $this->convertToXml($data,'root');
                 break;
             default:
                  return  $this->convertToJson($data);
@@ -91,13 +91,24 @@ class RestServer
          return '<ul>'.convertToHtml($data).'</ul>';
     }  
     
-    public function convertToXml($data)
+    public function convertToXml($data, $root)
     {
         header("Content-type: text/xml");
-                $xml = new SimpleXMLElement('<root/>');
-                $data = array_flip($data);
-                array_walk_recursive($data, array($xml, 'addChild'));
-                return $xml->asXML();
+               $xml = new SimpleXMLElement( '<' . $root . '/>' );
+  foreach( $data as $element=>$value ) {
+    $element = is_numeric( $element ) ? $root : $element;
+    if ( is_array( $value ) ) {
+      if ( is_numeric_keys( $value ) ) {
+        array2xml( $value, $xml, $element );
+      } else {
+        $$element = $xml->addChild( $element );
+        array2xml( $value, $$element, $element );
+      }
+    } else {
+      $xml->addChild( $element, $value );
+    }
+   }
+  return $xml->asXML();
           
     }
     
