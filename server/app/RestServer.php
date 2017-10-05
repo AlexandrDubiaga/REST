@@ -49,19 +49,51 @@ class RestServer
         switch ($this->encode)
         {
             case '.json':
-               return json_encode($data);
+               return  $this->convertToJson($data);
                 break;
             case '.txt':
-                return 'TXT';
+                return  $this->convertToTxt($data);
                 break;
             case '.html':
-                return 'HTML';
+                return  $this->convertToHtml($data);
                 break;
             case '.xml':
-                return 'XML';
+                 return  $this->convertToXml($data);
                 break;
             default:
-                return json_encode($data);
+                 return  $this->convertToJson($data);
         }
     }
+    
+    publuc function convertToJson($data)
+    {
+        header('Content-Type: application/json');
+        return json_encode($data);
+    }
+     publuc function convertToTxt($data)
+    {
+         header("Content-Type: text/plain");
+         print_r($data);
+        
+    }
+     publuc function convertToHtml($data)
+    {
+            $out = '<li>';
+            foreach($data as $v){
+                if(is_array($v)){
+                    $out .= '<ul>'.recurseTree($v).'</ul>';
+                }else{
+                    $out .= $v;
+            }
+            }
+           $out = '</li>';
+         echo '<ul>'.convertToHtml($data).'</ul>';
+    }    
+    
+     publuc function convertToXml($data)
+    {
+        
+    
+    }
+   
 }
