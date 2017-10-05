@@ -44,4 +44,24 @@ class RestServer
                 var_dump($this->$classMethod($param,$outPutt));
       
     }
+     protected function encodedData($data)
+    {
+        switch ($this->encode)
+        {
+            case '.json':
+                return json_encode($data);
+                break;
+            case '.txt':
+                return 'TXT';
+                break;
+            case '.html':
+                return 'HTML';
+                break;
+            case '.xml':
+                return 'XML';
+                break;
+            default:
+                return json_encode($data);
+        }
+    }
 }
