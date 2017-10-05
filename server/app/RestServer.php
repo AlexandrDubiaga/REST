@@ -4,13 +4,14 @@ class RestServer
     protected $reqMethod;
     protected $url;
     protected $param;
+    protected $encode;
   
 
     public function run()
     {
       $this->url = list($s, $user, $REST, $server, $api, $dir, $index, $class, $data) = explode("/", $_SERVER['REQUEST_URI'], 7);
         $this->reqMethod = $_SERVER['REQUEST_METHOD'];
-        var_dump($this->url[6]);
+        $this->encode = $this->url[6];
         switch ($this->reqMethod)
         {
                 case 'GET':
