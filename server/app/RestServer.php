@@ -91,7 +91,7 @@ class RestServer
          echo '<ul>'.convertToHtml($data).'</ul>';
     }  
     
-    /* public function convertToXml($data)
+    public function convertToXml($data)
     {
          
             header("Content-Type: application/xml");
@@ -99,12 +99,12 @@ class RestServer
             $xmlstr = <<<XML
             <?xml version='1.0' standalone='yes'?>
                 <data>
-                    $var
+                    $var;
                 </data>
                 XML;
                 $xml = new \SimpleXMLElement($xmlstr);
                 print_r($xml->asXML());
-    }*/
+    }
     
 }
 
