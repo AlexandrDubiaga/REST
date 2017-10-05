@@ -18,7 +18,7 @@ class RestServer
                 $this->setMethod('get'.ucfirst($dir), explode('/', $index));
                 break;
                 case 'DELETE':
-                $this->params = explode('/', $index);
+                $this->param = explode('/', $index);
                 $this->setMethod('delete'.ucfirst($dir));
                 break;
                 case 'POST':
