@@ -4,10 +4,7 @@ class RestServer
     protected $reqMethod;
     protected $url;
     protected $param;
-    public function __construct()
-    {
-
-    }
+  
 
     public function run()
     {
