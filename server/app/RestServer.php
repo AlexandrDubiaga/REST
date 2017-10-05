@@ -58,11 +58,7 @@ class RestServer
                 return  $this->convertToHtml($data);
                 break;
             case '.xml':
-                  header("Content-type: text/xml");
-                $xml = new SimpleXMLElement('<root/>');
-                $data = array_flip($data);
-                array_walk_recursive($data, array($xml, 'addChild'));
-               print_r($xml->asXML());
+                 return $this->convertToXml($data);
                 break;
             default:
                  return  $this->convertToJson($data);
