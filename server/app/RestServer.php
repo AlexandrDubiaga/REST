@@ -62,7 +62,7 @@ class RestServer
                 $xml = new SimpleXMLElement('<root/>');
                 $data = array_flip($data);
                 array_walk_recursive($data, array($xml, 'addChild'));
-               print $xml->asXML();
+               print_r($xml->asXML());
                 break;
             default:
                  return  $this->convertToJson($data);
