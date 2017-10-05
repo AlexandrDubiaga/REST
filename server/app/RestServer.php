@@ -18,7 +18,6 @@ class RestServer
         switch ($this->reqMethod)
         {
                 case 'GET':
-                var_dump($index);
                 $this->setMethod('get'.ucfirst($dir), explode('/', $index));
                 break;
                 case 'DELETE':
