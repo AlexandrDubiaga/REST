@@ -47,8 +47,8 @@ class Cars extends RestServer
     }
      public function deleteCars($url)
     {
-        echo "Alex";
-            $result = mysqli_query($this->link, "DELETE from AutoShop where id = 2 ");
+            $id =  $this->params;
+            $result = mysqli_query($this->link, "DELETE from AutoShop where id = '$id' ");
             if($result)
             {
                 return true;
