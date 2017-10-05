@@ -18,9 +18,9 @@ class Cars extends RestServer
         while ($row[] = mysqli_fetch_array($result, MYSQL_ASSOC)) {
         }
         
-        if($data == '.json')
+        if($this->encode == '.json')
         {
-        echo $this->encodedData($row);
+        echo $this->json_encode($row);
         
         }
       
