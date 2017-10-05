@@ -78,7 +78,7 @@ class RestServer
     }
      public function convertToHtml($data)
     {
-            header("Content-Type: text/html");
+            //header("Content-Type: text/html");
             $out = '<li>';
             foreach($data as $v){
                 if(is_array($v)){
