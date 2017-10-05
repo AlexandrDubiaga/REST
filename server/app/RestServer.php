@@ -3,6 +3,7 @@ class RestServer
 {
     protected $reqMethod;
     protected $url;
+    protected $param;
     public function __construct()
     {
 
@@ -20,7 +21,8 @@ class RestServer
                 $this->setMethod('get'.ucfirst($dir), explode('/', $index));
                 break;
                 case 'DELETE':
-                    $this->setMethod('delete'.ucfirst($dir), explode('/', $index));
+                 $this->params = explode('/', $data);
+                 $this->setMethod('delete'.ucfirst($class));
                 break;
                 case 'POST':
                 $this->setMethod('post'.ucfirst($dir), explode('/', $index));
