@@ -93,7 +93,6 @@ class RestServer
     
     public function convertToXml($data)
     {
-         
             header("Content-Type: application/xml");
             $var = json_encode($data);
             $xmlstr = <<<XML
