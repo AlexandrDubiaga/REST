@@ -62,6 +62,7 @@ class Cars extends RestServer
     public function putCars($url, $param)
     {
         $id = $param['id'];
+        var_dump($id);
         if(isset($param['id']) && isset($param['marka']) && isset($param['model']) && isset($param['year_car']) && isset($param['engine_capacity']) && isset($param['color']) && isset($param['max_speed'])  && isset($param['price'])) {
             $query = mysqli_query($this->link, "UPDATE AutoShop SET marka = '$param[marka]', model = '$param[model]', year_car = '$param[year_car]', engine_capacity = '$param[engine_capacity]', color = '$param[color]', max_speed = '$param[max_speed]', price = '$param[price]' WHERE id = '$id'");
             if ($query)
