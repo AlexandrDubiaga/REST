@@ -11,7 +11,7 @@ class RestServer
     {
       $this->url = list($s, $user, $REST, $server, $api, $dir, $index, $class, $data) = explode("/", $_SERVER['REQUEST_URI'], 7);
         $this->reqMethod = $_SERVER['REQUEST_METHOD'];
-        $this->encode = $this->url[6];
+        //$this->encode = $this->url[6];
         switch ($this->reqMethod)
         {
                 case 'GET':
