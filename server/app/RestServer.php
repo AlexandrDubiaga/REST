@@ -93,10 +93,10 @@ class RestServer
     
     public function convertToXml($data)
     {
-       //header("Content-type: text/xml");
+        header("Content-Type: application/xml");
         $xml = new SimpleXMLElement('<root/>');
         array_walk_recursive($data, array($xml, 'addChild'));
-        print $xml->asXML();
+        return $xml->asXML();
           
     }
     
