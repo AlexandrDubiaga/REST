@@ -20,7 +20,7 @@ class Cars extends RestServer
         
         if($this->encode == '.json')
         {
-        echo $this->json_encode($row);
+        echo json_encode($row);
         
         }
       
