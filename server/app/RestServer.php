@@ -95,7 +95,7 @@ class RestServer
     {
        header("Content-type: text/xml");
         $xml = new SimpleXMLElement('<root/>');
-        array_walk_recursive($data, array ($xml, 'addChild'));
+        array_walk_recursive($data, array($xml, 'addChild'));
         print $xml->asXML();
           
     }
