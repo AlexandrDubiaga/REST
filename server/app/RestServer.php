@@ -70,13 +70,13 @@ class RestServer
         header('Content-Type: application/json');
         return json_encode($data);
     }
-     publuc function convertToTxt($data)
+     public function convertToTxt($data)
     {
          header("Content-Type: text/plain");
          print_r($data);
         
     }
-     publuc function convertToHtml($data)
+     public function convertToHtml($data)
     {
             $out = '<li>';
             foreach($data as $v){
@@ -90,7 +90,7 @@ class RestServer
          echo '<ul>'.convertToHtml($data).'</ul>';
     }    
     
-     publuc function convertToXml($data)
+     public function convertToXml($data)
     {
         
     
