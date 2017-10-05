@@ -104,9 +104,8 @@ class RestServer
                 XML;
                 $xml = new \SimpleXMLElement($xmlstr);
                 print_r($xml->asXML());
-              }
-}   
+    }
     
-    
-   
+}
+}
 }
