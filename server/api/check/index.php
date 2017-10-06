@@ -11,6 +11,7 @@ class Check extends RestServer
     }
     protected function getAuth($data)
     {
+          echo "Cockies";
           var_dump($_COOKIE['id']);
        if (isset($_COOKIE['id']) and isset($_COOKIE['hash']))
 
