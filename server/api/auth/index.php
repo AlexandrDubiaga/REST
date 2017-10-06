@@ -8,9 +8,9 @@ class Auth extends RestServer
         $this->link = $this->db;
         $this->run();
     }
-    protected function getUsers($data)
+    protected function getAuth($data)
     {
-        echo "Auth;
+        echo "Auth";
     }
     protected function postAuth()
     {
