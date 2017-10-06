@@ -56,6 +56,7 @@ else
     } 
    
 }
-
+$check = new Check();
 ?>
+
 
