@@ -5,7 +5,6 @@ class Check extends RestServer
     protected $link;
     public function __construct()
     {
-        var_dump($_COOKIE['id']);
         parent::__construct();
         $this->link = $this->db;
         $this->run();
