@@ -27,7 +27,8 @@ class Auth extends RestServer
         mysqli_query($this->link,"UPDATE users SET user_hash='".$hash."' ".$insip." WHERE user_id='".$data['user_id']."'");
         setcookie("id", $data['user_id'], time()+60*60*24*30);
         setcookie("hash", $hash, time()+60*60*24*30);
-      header('Location: ../api/check/'); exit();
+        $this->cookies = $_COOKIE['hash'];
+      //header('Location: ../api/check/'); exit();
          //var_dump($_COOKIE['id']);
     }
     else
