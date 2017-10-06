@@ -102,7 +102,7 @@ class RestServer extends DB
     
     public function convertToXml($data, $root)
     {
-        //header("Content-type: text/xml");
+        header("Content-type: text/xml");
         $xml = new SimpleXMLElement( '<' . $root . '/>' );
         foreach( $data as $element=>$value )
         {
