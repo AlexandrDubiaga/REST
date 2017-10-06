@@ -17,7 +17,7 @@ class Check extends RestServer
               var_dump($_COOKIE['hash']);
              
        
-       if (isset($_COOKIE['id']) && isset($_COOKIE['hash']))
+       if (!isset($_COOKIE['id']) && !isset($_COOKIE['hash']))
 
       {   
          
