@@ -12,9 +12,9 @@ class Check extends RestServer
     protected function getCheck($data)
     {
        
-    var_dump(isset($_COOKIE['id']);
+    var_dump($_COOKIE['id']);
              echo "<br>";
-              var_dump(isset($_COOKIE['hash']);
+              var_dump($_COOKIE['hash']);
              
        
        if (isset($_COOKIE['id']) && isset($_COOKIE['hash']))
