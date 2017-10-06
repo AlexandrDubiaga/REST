@@ -5,13 +5,13 @@ class Check extends RestServer
     protected $link;
     public function __construct()
     {
+        var_dump($_COOKIE['id']);
         parent::__construct();
         $this->link = $this->db;
         $this->run();
     }
     protected function getCheck($data)
     {
-        echo $_COOKIE['hash'];
        if (isset($_COOKIE['id']) && isset($_COOKIE['hash']))
 
       {   
