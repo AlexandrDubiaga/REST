@@ -7,6 +7,7 @@ class RestServer extends DB
     protected $param;
     protected $encode;
     protected $db;
+    protected $data;
 
     public function __construct()
     {
@@ -26,7 +27,7 @@ class RestServer extends DB
                 $this->setMethod('get'.ucfirst($dir), explode('/', $index));
                 break;
                 case 'DELETE':
-                    $this->param = $this->setMethod('delete'.ucfirst($dir), explode('/', $index));
+                    $this->param = $this->setMethod('delete'.ucfirst($dir), explode('/',  $index));
                 break;
                 case 'POST':
                 $this->setMethod('post'.ucfirst($dir), explode('/', $index));
@@ -48,6 +49,7 @@ class RestServer extends DB
 
     public function setMethod($classMethod, $param=false, $outPutt = false)
     {
+
                 echo $this->$classMethod($param,$outPutt);
       
     }

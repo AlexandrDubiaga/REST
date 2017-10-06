@@ -15,15 +15,12 @@ class Cars extends RestServer
     {
       
         $result = mysqli_query($this->link, "SELECT * FROM AutoShop");
-        while ($row[] = mysqli_fetch_array($result, MYSQL_ASSOC)) {
+        while ($row[] = mysqli_fetch_array($result, MYSQL_ASSOC))
+        {
         }
-       //$ad = array('sefse'=>'sefsef','awdawrsfg'=>'sefreg4','rgrtgrt'=>'drgdrg');
-       print_r($this->encodedData($row));
-     
-
-       
-
+        print_r($this->encodedData($row));
     }
+
      public function postCars()
     {
            $id = $_POST['id'];
@@ -48,11 +45,10 @@ class Cars extends RestServer
          }
          return false;
     }
-     public function deleteCars($url)
+     public function deleteCars($url,$index)
     {
-            $id =  $this->param;
-            var_dump($id);
-            $result = mysqli_query($this->link, "DELETE from AutoShop where id = '$id' ");
+         var_dump($index);
+            $result = mysqli_query($this->link, "DELETE from AutoShop where id = '$index' ");
             if($result)
             {
                 return true;
