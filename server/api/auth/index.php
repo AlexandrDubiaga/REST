@@ -19,7 +19,7 @@ class Auth extends RestServer
     $query = mysqli_query( $this->link,"SELECT user_id, user_password FROM users WHERE user_login='".$_POST['login']."' LIMIT 1");
 
     $data = mysqli_fetch_assoc($query);
-
+    var_dump($_POST['login']);
     
 
     # Соавниваем пароли
