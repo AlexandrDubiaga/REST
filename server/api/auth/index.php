@@ -1,3 +1,4 @@
+<?php
 include '../../app/RestServer.php';
 class Auth extends RestServer
 {
@@ -18,3 +19,4 @@ class Auth extends RestServer
     }
 }
 $auth = new Auth();
+?>
