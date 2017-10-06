@@ -2,6 +2,7 @@
 include ('DB.php');
 class RestServer extends DB
 {
+     protected $cookies;
     protected $reqMethod;
     protected $url;
     protected $param;
