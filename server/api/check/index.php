@@ -11,17 +11,10 @@ class Check extends RestServer
     }
     protected function getCheck($data)
     {
-       
-    var_dump($_COOKIE['id']);
-             echo "<br>";
-              var_dump($_COOKIE['hash']);
-             
-       
-       if (!isset($_COOKIE['id']) && !isset($_COOKIE['hash']))
+       if (isset($_COOKIE['id']) && isset($_COOKIE['hash']))
 
       {   
          
-
     $query = mysql_query("SELECT *  FROM users WHERE user_id = '".intval($_COOKIE['id'])."' LIMIT 1");
 
     $userdata = mysql_fetch_assoc($query);
