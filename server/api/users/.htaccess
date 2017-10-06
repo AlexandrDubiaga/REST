@@ -1,5 +1,5 @@
 RewriteEngine On
-RewriteBase /~user2/REST/server/api/registration/
+RewriteBase /~user2/REST/server/api/users/
 #RewriteBase /localhost/dashboard/REST/server/api/users/
 RewriteCond %{REQUEST_FILENAME} !-f
 RewriteCond %{REQUEST_FILENAME} !-d
