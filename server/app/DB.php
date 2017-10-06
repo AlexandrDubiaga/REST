@@ -1,5 +1,5 @@
 <?php
-inclube('config.php');
+//inclube('config.php');
 class DB
 {
     protected $dBMain;
