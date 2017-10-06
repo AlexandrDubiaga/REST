@@ -37,7 +37,7 @@ class Users extends RestServer
         if(count($err) == 0)
         {
             $login = $_POST['user_login'];
-            $password = md5(md5(trim($_POST['user_password'])));
+            $password =/* md5(md5(trim(*/$_POST['user_password']/*)))*/;
             mysqli_query($this->link,"INSERT INTO users SET user_login='".$login."', user_password='".$password."'");
         }
         else
