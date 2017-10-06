@@ -9,7 +9,7 @@ class Check extends RestServer
         $this->link = $this->db;
         $this->run();
     }
-    protected function getCheck ($data)
+    protected function getCheck($data)
     {
           echo "Cockies";
          /* var_dump($_COOKIE['id']);
