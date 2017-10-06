@@ -49,7 +49,6 @@ class RestServer extends DB
 
     public function setMethod($classMethod, $param=false, $outPutt = false)
     {
-        var_dump($classMethod);
 
                 echo $this->$classMethod($param,$outPutt);
       
