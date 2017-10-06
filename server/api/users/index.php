@@ -29,7 +29,7 @@ class Users extends RestServer
         {
             $err[] = "login !< 3 and !> 30 letters";
         }
-        $query = mysql_query("SELECT COUNT(user_id) FROM users WHERE user_login='".mysql_real_escape_string( $_POST['user_login'])."'");
+        /*$query = mysql_query("SELECT COUNT(user_id) FROM users WHERE user_login='".mysql_real_escape_string( $_POST['user_login'])."'");
         if(mysql_result($query, 0) > 0)
         {
             $err[] = "This login is isset allredy";
@@ -49,7 +49,7 @@ class Users extends RestServer
                 print $error."<br>";
             }
 
-        }
+        }*/
 
     }
 
