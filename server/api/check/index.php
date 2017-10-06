@@ -14,7 +14,7 @@ class Check extends RestServer
        
     
        
-       if (isset($_COOKIE['id']) and isset($_COOKIE['hash']))
+       if (isset($_COOKIE['id']) && isset($_COOKIE['hash']))
 
       {   
          
