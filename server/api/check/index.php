@@ -1,6 +1,6 @@
 <?php
 include '../../app/RestServer.php';
-include '../api/auth/Auth.php';
+include '../auth/Auth.php';
 class Check extends RestServer
 {
     protected $link;
