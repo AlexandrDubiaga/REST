@@ -24,6 +24,7 @@ class Auth extends RestServer
     if($data['user_password'] === /*md5(md5(*/$_POST['password']/*))*/)
 
     {
+        var_dump($_POST['password']);
 
         # Генерируем случайное число и шифруем его
 
