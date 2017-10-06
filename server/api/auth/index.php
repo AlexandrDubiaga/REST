@@ -21,7 +21,7 @@ class Auth extends RestServer
     $data = mysqli_fetch_assoc($query);
     var_dump($data['user_password']);
 
-    if($data['user_password'] === md5(md5($_POST['password'])))
+    if($data['user_password'] === /*md5(md5(*/$_POST['password']/*))*/)
 
     {
 
