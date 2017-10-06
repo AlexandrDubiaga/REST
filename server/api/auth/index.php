@@ -28,6 +28,7 @@ class Auth extends RestServer
         setcookie("id", $data['user_id'], time()+60*60*24*30);
         setcookie("hash", $hash, time()+60*60*24*30);
         //ader("Location: check.php"); exit();
+         var_dump($_COOKIE['id']);
     }
     else
 
