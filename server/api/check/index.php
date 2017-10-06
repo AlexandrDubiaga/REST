@@ -11,7 +11,7 @@ class Check extends RestServer
     }
     protected function getCheck($data)
     {
-        var_dump($this->cookies);
+        var_dump($_COOKIE);
        if (isset($_COOKIE['id']) && isset($_COOKIE['hash']))
 
       {   
