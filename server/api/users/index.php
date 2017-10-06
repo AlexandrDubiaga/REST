@@ -48,7 +48,7 @@ class Users extends RestServer
                 print $error."<br>";
             }
 
-        }*/
+        }
 
     }
 
