@@ -49,7 +49,7 @@ class Cars extends RestServer
     {
         // var_dump($index);
           var_dump($url);
-            $result = mysqli_query($this->link, "DELETE from AutoShop where id = '$url' ");
+            $result = mysqli_query($this->link, "DELETE from AutoShop where id = '$url[0]' ");
             if($result)
             {
                 return true;
