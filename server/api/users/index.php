@@ -1,6 +1,6 @@
 <?php
 include '../../app/RestServer.php';
-class Registration extends RestServer
+class Users extends RestServer
 {
     protected $link;
     public function __construct()
