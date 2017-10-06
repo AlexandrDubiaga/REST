@@ -12,7 +12,7 @@ class Check extends RestServer
     protected function getCheck ($data)
     {
           echo "Cockies";
-          var_dump($_COOKIE['id']);
+         /* var_dump($_COOKIE['id']);
        if (isset($_COOKIE['id']) and isset($_COOKIE['hash']))
 
       {   
@@ -51,7 +51,7 @@ else
 
     print "Включите куки";
 
-}
+}*/
     }
    
 }
