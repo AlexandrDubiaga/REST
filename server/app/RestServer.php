@@ -1,11 +1,19 @@
 <?php
-class RestServer
+include ('DB.php');
+class RestServer extends DB
 {
     protected $reqMethod;
     protected $url;
     protected $param;
     protected $encode;
-  
+    protected $db;
+
+    public function __construct()
+    {
+        parent::__construct();
+        $this->db = $this->dBMain;
+    }
+
 
     public function run()
     {
@@ -18,8 +26,7 @@ class RestServer
                 $this->setMethod('get'.ucfirst($dir), explode('/', $index));
                 break;
                 case 'DELETE':
-                $this->param = explode('/', $index);
-                $this->setMethod('delete'.ucfirst($dir));
+                    $this->param = $this->setMethod('delete'.ucfirst($dir), explode('/', $index));
                 break;
                 case 'POST':
                 $this->setMethod('post'.ucfirst($dir), explode('/', $index));
@@ -94,51 +101,65 @@ class RestServer
     public function convertToXml($data, $root)
     {
         header("Content-type: text/xml");
-    $xml = new SimpleXMLElement( '<' . $root . '/>' );
-  foreach( $data as $element=>$value ) {
-    $element = is_numeric( $element ) ? $root : $element;
-    if ( is_array( $value ) ) {
-      if ( $this->is_numeric_keys( $value ) ) {
-        $this->array2xml( $value, $xml, $element );
-      } else {
-        $elementS = $xml->addChild( $element );
-         $this->array2xml( $value, $elementS, $element );
-      }
-    } else {
-      $xml->addChild( $element, $value );
-    }
-   }
-  return $xml->asXML();
+        $xml = new SimpleXMLElement( '<' . $root . '/>' );
+        foreach( $data as $element=>$value )
+        {
+            $element = is_numeric( $element ) ? $root : $element;
+            if ( is_array( $value ) )
+            {
+                if ( $this->isNumericKeys( $value ) ) {
+                    $this->array2xml( $value, $xml, $element );
+                } else
+                {
+                    $elementS = $xml->addChild( $element );
+                    $this->array2xml( $value, $elementS, $element );
+                }
+            } else
+            {
+                $xml->addChild( $element, $value );
+            }
+        }
+        return $xml->asXML();
 }
  
-function array2xml( $array, &$xml, $root ) {
-  foreach( $array as $element=>$value ) {
-    $element = is_numeric( $element ) ? $root : $element;
-    if ( is_array( $value ) ) {
-      if (  $this->is_numeric_keys( $value ) ) {
-         $this->array2xml( $value, $xml, $element );
-      } else {
-        $elementS = $xml->addChild( $element );
-         $this->array2xml( $value, $elementS, $element );
-      }
-    } else {
-      if ( preg_match( '/^@/', $element) ) {
-        $xml->addAttribute( str_replace( '@', '', $element ), $value );
-      } else {
-        $xml->addChild( $element, $value );
-      }
+    function array2xml( $array, &$xml, $root )
+    {
+        foreach( $array as $element=>$value )
+        {
+        $element = is_numeric( $element ) ? $root : $element;
+        if ( is_array( $value ) ) {
+            if (  $this->isNumericKeys( $value ) )
+            {
+                $this->array2xml( $value, $xml, $element );
+            } else
+            {
+                $elementS = $xml->addChild( $element );
+                $this->array2xml( $value, $elementS, $element );
+            }
+        } else
+        {
+            if ( preg_match( '/^@/', $element) )
+            {
+                $xml->addAttribute( str_replace( '@', '', $element ), $value );
+            } else
+                {
+                $xml->addChild( $element, $value );
+            }
+        }
     }
-  }
 }
  
-function is_numeric_keys( $array ) {
-  foreach( $array as $key=>$value ) {
-    if ( ! is_numeric( $key ) ) {
-      return false;
+    function isNumericKeys( $array )
+    {
+        foreach( $array as $key=>$value )
+        {
+            if ( ! is_numeric( $key ) )
+            {
+                return false;
+            }
+        }
+        return true;
     }
-  }
-  return true;
-}
     
 }
 
