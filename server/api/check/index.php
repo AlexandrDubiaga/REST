@@ -11,9 +11,11 @@ class Check extends RestServer
     }
     protected function getAuth($data)
     {
+          var_dump($_COOKIE['id']);
        if (isset($_COOKIE['id']) and isset($_COOKIE['hash']))
 
       {   
+         
 
     $query = mysql_query("SELECT *  FROM users WHERE user_id = '".intval($_COOKIE['id'])."' LIMIT 1");
 
