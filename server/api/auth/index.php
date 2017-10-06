@@ -15,33 +15,20 @@ class Auth extends RestServer
     }
     protected function postAuth()
     {
-  
     $query = mysqli_query( $this->link,"SELECT user_id, user_password FROM users WHERE user_login='".$_POST['user_login']."' LIMIT 1");
-
     $data = mysqli_fetch_assoc($query);
-    var_dump($_POST['password']);
 
     if($data['user_password'] === /*md5(md5(*/$_POST['user_password']/*))*/)
 
     {
-      
-
         # Генерируем случайное число и шифруем его
 
         $hash = md5($this->generateCode(10));
-        mysql_query("UPDATE users SET user_hash='".$hash."' ".$insip." WHERE user_id='".$data['user_id']."'");
+        mysqli_query($this->link,"UPDATE users SET user_hash='".$hash."' ".$insip." WHERE user_id='".$data['user_id']."'");
         setcookie("id", $data['user_id'], time()+60*60*24*30);
-
         setcookie("hash", $hash, time()+60*60*24*30);
-
-        
-
-        # Переадресовываем браузер на страницу проверки нашего скрипта
-
-        header("Location: check.php"); exit();
-
+        //ader("Location: check.php"); exit();
     }
-
     else
 
     {
