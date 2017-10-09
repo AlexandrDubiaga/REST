@@ -1,8 +1,7 @@
 ##DirectoryIndex index.php
 RewriteEngine On
-#RewriteBase /~user6/REST/server/api/cars/
-RewriteBase /user6/rest_task1/server/api/users/
-#RewriteBase /server/api/cars
+#RewriteBase /~user6/REST/server/api/orders/
+RewriteBase /user2/REST/server/api/orders/
 
 RewriteCond %{REQUEST_FILENAME} !-f
 RewriteCond %{REQUEST_FILENAME} !-d

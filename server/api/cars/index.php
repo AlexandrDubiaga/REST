@@ -1,78 +1,36 @@
 <?php
-include '../../app/RestServer.php';
+include('../../app/models/ModelCars.php');
 class Cars extends RestServer
 {
-    protected $link;
+    private $model;
     public function __construct()
     {
-        parent::__construct();
-        $this->link = $this->db;
+        $this->model = new ModelCars();
         $this->run();
-        
     }
 
-    public function getCars($data = false)
+    public function getCars($data)
     {
-      
-        $result = mysqli_query($this->link, "SELECT * FROM AutoShop");
-        while ($row[] = mysqli_fetch_array($result, MYSQL_ASSOC))
-        {
-        }
-        print_r($this->encodedData($row));
+        $result = $this->model->getCars($data);
+        $result = $this->encodedData($result);
+        return $result;
     }
 
-     public function postCars()
+    public function postCars($url,$data)
     {
-           $id = $_POST['id'];
-           $marka = $_POST['marka'];
-           $model = $_POST['model'];
-           $year = $_POST['year_car'];
-           $engine = $_POST['engine_capacity'];
-           $color = $_POST['color'];
-           $speed = $_POST['max_speed'];
-           $price = $_POST['price'];
-         if(isset($id) && isset($marka) && isset($model) && isset($year) && isset($engine) && isset($color) && isset($speed)  && isset($price))
-         {
-            $result = mysqli_query($this->link, "INSERT into AutoShop(id,marka,model,year_car,engine_capacity,color,max_speed,price) VALUES ('$id','$marka','$model','$year','$engine','$color','$speed','$price')");
-            if($result)
-            {
-                return true;
-            }
-            else
-            {
-                return false;
-            }  
-         }
-         return false;
+        $result = $this->model->postCars($data);
+
     }
-     public function deleteCars($url)
-    {
-        // var_dump($index);
-          //var_dump($url);
-            $result = mysqli_query($this->link, "DELETE from AutoShop where id = '$url[0]' ");
-            if($result)
-            {
-                return true;
-            }
-            else
-            {
-                return false;
-            }  
-         return false;
-       }
+
     public function putCars($url, $param)
     {
-        $id = $param['id'];
-      
-        if(isset($param['id']) && isset($param['marka']) && isset($param['model']) && isset($param['year_car']) && isset($param['engine_capacity']) && isset($param['color']) && isset($param['max_speed'])  && isset($param['price'])) {
-            $query = mysqli_query($this->link, "UPDATE AutoShop SET marka = '$param[marka]', model = '$param[model]', year_car = '$param[year_car]', engine_capacity = '$param[engine_capacity]', color = '$param[color]', max_speed = '$param[max_speed]', price = '$param[price]' WHERE id = '$id'");
-            if ($query)
-                return true;
-            else
-                return false;
-        }
+        $result = $this->model->putsCars($url, $param);
+
+    }
+
+    public function deleteCars($data)
+    {
+        $res = $this->model->deleteCars($data);
     }
 }
-
-       
 $cars = new Cars();

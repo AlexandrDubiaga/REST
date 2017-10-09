@@ -31,7 +31,14 @@ class RestServer extends DB
                     $this->param = $this->setMethod('delete'.ucfirst($dir), explode('/',  $index));
                 break;
                 case 'POST':
-                $this->setMethod('post'.ucfirst($dir), explode('/', $index));
+                    $putV = (explode('&', file_get_contents("php://input")));
+                    $put = array();
+                    foreach ($putV as $value)
+                    {
+                        $keyValue = explode('=', $value);
+                        $put[$keyValue[0]]=$keyValue[1];
+                    }
+                $this->setMethod('post'.ucfirst($dir), explode('/', $index),$put);
                 break;
                 case 'PUT':
                 $putV = (explode('&', file_get_contents("php://input")));
@@ -41,7 +48,13 @@ class RestServer extends DB
                     $keyValue = explode('=', $value);
                     $put[$keyValue[0]]=$keyValue[1];
                 }
+
                 $this->setMethod('put'.ucfirst($dir), explode('/', $index), $put);
+                break;
+            case 'OPTIONS':
+                header('Access-Control-Allow-Methods: PUT');
+                header('Access-Control-Allow-Origin: *');
+                exit();
                 break;
         }
         
@@ -77,7 +90,7 @@ class RestServer extends DB
     
     public function convertToJson($data)
     {
-        header('Content-Type: application/json');
+        //header('Content-Type: application/json');
        echo json_encode($data);
     }
      public function convertToTxt($data)
