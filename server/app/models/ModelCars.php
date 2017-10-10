@@ -20,6 +20,8 @@ class ModelCars extends RestServer
                     $sql .= $key.'='.$this->link->quote($val).' AND ';
                 }
                 $sql = substr($sql, 0, -5);
+                 $sth = $this->link->prepare($sql);
+        $result = $sth->execute();
             }
         }
         $sth = $this->link->prepare($sql);
