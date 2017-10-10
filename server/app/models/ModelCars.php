@@ -12,15 +12,10 @@ class ModelCars extends RestServer
     {
         $sql = "SELECT car_id, marka, model, year_car, 	engine_capacity, color, max_speed, price FROM cars";
         if ($param !== false)
-            $array1 = array();
-            $array2 = explode(',', $param[0]);
-        foreach($array2 as $str) {
-            list($key, $value) = explode('=', $str);
-            $array1[$key] = $value;
-            if (is_array($array1))
+            if (is_array($param))
             {
                 $sql .= " WHERE ";
-                foreach ($array1 as $key => $val)
+                foreach ($param as $key => $val)
                 {
                     $sql .= $key.'='.$this->link->quote($val).' AND ';
                 }
