@@ -18,12 +18,12 @@ class ModelCars extends RestServer
                 $sql .= " WHERE ";
                 foreach ($param as $key => $val)
                 {
-                    $sql .= $key.'='.$this->pdo->quote($val).' AND ';
+                    $sql .= $key.'='.$this->link->quote($val).' AND ';
                 }
                 $sql = substr($sql, 0, -5);
             }
         }
-        $sth = $this->pdo->prepare($sql);
+        $sth = $this->link->prepare($sql);
         $result = $sth->execute();
         if (false === $result)
         {
