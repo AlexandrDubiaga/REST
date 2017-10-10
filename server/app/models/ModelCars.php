@@ -31,6 +31,7 @@ class ModelCars extends RestServer
             return false;
         }
         $data = $sth->fetchAll(PDO::FETCH_ASSOC);
+        var_dump($data);
         if (empty($data))
         {
              return false;
