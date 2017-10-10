@@ -10,7 +10,7 @@ class ModelCars extends RestServer
     }
     public function getCars($param=false)
     {
-         $sql = "SELECT id, marka, model, year_car, engine_capacity, color, max_speed, price FROM cars";
+         $sql = "SELECT car_id, marka, model, year_car, engine_capacity, color, max_speed, price FROM cars";
         if ($param !== false)
         {
             if (is_array($param))
