@@ -11,7 +11,7 @@ class ModelCars extends RestServer
     public function getCars($param=false)
     {
         $sql = "SELECT car_id, marka, model, year_car, 	engine_capacity, color, max_speed, price FROM cars";
-        if ($param !== false){
+        /*if ($param !== false){
             if (is_array($param))
             {
                 $sql .= " WHERE ";
@@ -20,10 +20,11 @@ class ModelCars extends RestServer
                     $sql .= $key.'='.$this->link->quote($val).' AND ';
                 }
                 $sql = substr($sql, 0, -5);
-        
+               }
+        }*/
         $sth = $this->link->prepare($sql);
         $result = $sth->execute();
-        if ($result === false)
+        /*if ($result === false)
         {
             $x = "SELECT car_id, marka, model, year_car, engine_capacity, color, max_speed, price FROM cars";
             $sth = $this->link->prepare($x);
@@ -36,9 +37,8 @@ class ModelCars extends RestServer
         {
            return false;
         }
-                    }
-        }
-        return $data;
+      */
+        return $result;
     }
 
     public function postCars($data)
