@@ -11,21 +11,21 @@ class ModelCars extends RestServer
     public function getCars($param=false)
     {
          $sql = "SELECT car_id, marka, model, year_car, 	engine_capacity, color, max_speed, price FROM cars";
-        if ($param !== false){
+        /*if ($param !== false){
             if (is_array($param))
-            {
+            {*/
                 $sql .= " WHERE ";
                 foreach ($param as $key => $val)
                 {
                     $sql .= $key.'='.$this->link->quote($val).' AND ';
                 }
                 $sql = substr($sql, 0, -5);
-               }
+             //  }
             $sth = $this->link->prepare($sql);
             $result = $sth->execute();
-            $res = $sth->fetch(PDO::FETCH_ASSOC);
+            $res = $sth->fetchAll(PDO::FETCH_ASSOC);
             return $res;
-        }
+        //}
         
            /*  $x = "SELECT car_id, marka, model, year_car, engine_capacity, color, max_speed, price FROM cars";
             $sth = $this->link->prepare($x);
