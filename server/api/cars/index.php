@@ -11,6 +11,7 @@ class Cars extends RestServer
 
     public function getCars($data)
     {
+        var_dump($data);
         $result = $this->model->getCars($data);
         $result = $this->encodedData($result);
         return $result;
