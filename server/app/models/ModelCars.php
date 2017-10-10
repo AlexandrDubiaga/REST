@@ -10,7 +10,7 @@ class ModelCars extends RestServer
     }
     public function getCars($param=false)
     {
-        if(!param)
+        if(!$param)
         {
              $x = "SELECT car_id, marka, model, year_car, engine_capacity, color, max_speed, price FROM cars";
             $sth = $this->link->prepare($x);
