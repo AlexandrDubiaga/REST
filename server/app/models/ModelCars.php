@@ -21,7 +21,7 @@ class ModelCars extends RestServer
                 }
                 $sql = substr($sql, 0, -5);
                }
-            $sth = $this->link->prepare($x);
+            $sth = $this->link->prepare($sql);
             $result = $sth->execute();
             $res = $sth->fetchAll(PDO::FETCH_ASSOC);
             return $res;
