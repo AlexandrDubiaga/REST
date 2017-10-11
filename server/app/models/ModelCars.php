@@ -15,10 +15,8 @@ class ModelCars extends RestServer
         {
           
                     $sql .= " WHERE "."car_id" .'='.$this->link->quote($param[0]).' AND ';
-          }
-                $sql = substr($sql, 0, -5);
-            
-        var_dump($sql);
+       
+        $sql = substr($sql, 0, -5);
         $sth = $this->link->prepare($sql);
         $result = $sth->execute();
         if (false === $result)
@@ -26,12 +24,21 @@ class ModelCars extends RestServer
             return false;
         }
         $data = $sth->fetchAll(PDO::FETCH_ASSOC);
-        var_dump($data);
         if (empty($data))
         {
              return false;
         }
         return $data;
+        }else
+        {
+             $sql = "SELECT car_id, marka, model, year_car, engine_capacity, color, max_speed, price FROM cars";
+              $sth = $this->link->prepare($sql);
+               $result = $sth->execute();
+             $data = $sth->fetchAll(PDO::FETCH_ASSOC);
+               return $data;
+        
+        
+        }
     }
 
     public function postCars($data)
