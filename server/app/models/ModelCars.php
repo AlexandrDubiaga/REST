@@ -18,32 +18,18 @@ class ModelCars extends RestServer
                $result = $sth->execute();
              $data = $sth->fetchAll(PDO::FETCH_ASSOC);
                return $data;
-        
-       
        }
         if ($param !== false)
         {
             $sql = "SELECT car_id, marka, model, year_car, engine_capacity, color, max_speed, price FROM cars";
-          
-                    $sql .= " WHERE "."car_id" .'='.$this->link->quote($param[0]).' AND ';
+            $sql .= " WHERE "."car_id" .'='.$this->link->quote($param[0]).' AND ';
        
         $sql = substr($sql, 0, -5);
         $sth = $this->link->prepare($sql);
         $result = $sth->execute();
-        /*if (false === $result)
-        {
-            return false;
-        }*/
         $data = $sth->fetchAll(PDO::FETCH_ASSOC);
-       /* if (empty($data))
-        {
-             return false;
-        }*/
         return $data;
         }
-             
-            
-       
     }
 
     public function postCars($data)
