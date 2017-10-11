@@ -11,7 +11,16 @@ class ModelCars extends RestServer
     public function getCars($param=false)
     {
        
-         var_dump($param);
+       if($param === false)
+       {
+         $sql = "SELECT car_id, marka, model, year_car, engine_capacity, color, max_speed, price FROM cars";
+              $sth = $this->link->prepare($sql);
+               $result = $sth->execute();
+             $data = $sth->fetchAll(PDO::FETCH_ASSOC);
+               return $data;
+        
+       
+       }
         if ($param !== false)
         {
             $sql = "SELECT car_id, marka, model, year_car, engine_capacity, color, max_speed, price FROM cars";
@@ -32,12 +41,7 @@ class ModelCars extends RestServer
         }*/
         return $data;
         }
-              $sql = "SELECT car_id, marka, model, year_car, engine_capacity, color, max_speed, price FROM cars";
-              $sth = $this->link->prepare($sql);
-               $result = $sth->execute();
-             $data = $sth->fetchAll(PDO::FETCH_ASSOC);
-               return $data;
-        
+             
             
        
     }
