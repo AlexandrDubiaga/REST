@@ -10,11 +10,7 @@ class ModelCars extends RestServer
     }
     public function getCars($param=false)
     {
-         $sql = "SELECT car_id, marka, model, year_car, engine_capacity, color, max_speed, price FROM cars";
-              $sth = $this->link->prepare($sql);
-               $result = $sth->execute();
-             $data = $sth->fetchAll(PDO::FETCH_ASSOC);
-               return $data;
+       
          
         if ($param !== false)
         {
@@ -25,16 +21,23 @@ class ModelCars extends RestServer
         $sql = substr($sql, 0, -5);
         $sth = $this->link->prepare($sql);
         $result = $sth->execute();
-        if (false === $result)
+        /*if (false === $result)
         {
             return false;
-        }
+        }*/
         $data = $sth->fetchAll(PDO::FETCH_ASSOC);
-        if (empty($data))
+       /* if (empty($data))
         {
              return false;
-        }
+        }*/
         return $data;
+        }else
+        {
+              $sql = "SELECT car_id, marka, model, year_car, engine_capacity, color, max_speed, price FROM cars";
+              $sth = $this->link->prepare($sql);
+               $result = $sth->execute();
+             $data = $sth->fetchAll(PDO::FETCH_ASSOC);
+               return $data;
         }
             
        
