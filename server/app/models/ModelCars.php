@@ -13,15 +13,11 @@ class ModelCars extends RestServer
          $sql = "SELECT car_id, marka, model, year_car, engine_capacity, color, max_speed, price FROM cars";
         if ($param !== false)
         {
-            if (is_array($param))
-            {
-                $sql .= " WHERE ";
-                foreach ($param as $key => $val)
-                {
-                    $sql .= "car_id" .'='.$this->link->quote($val).' AND ';
-                }
+          
+                    $sql .= "car_id" .'='.$this->link->quote($param[0]).' AND ';
+          }
                 $sql = substr($sql, 0, -5);
-            }
+            
         }
         var_dump($sql);
         $sth = $this->link->prepare($sql);
