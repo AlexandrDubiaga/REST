@@ -10,9 +10,10 @@ class ModelCars extends RestServer
     }
     public function getCars($param=false)
     {
-         $sql = "SELECT car_id, marka, model, year_car, engine_capacity, color, max_speed, price FROM cars";
+         
         if ($param !== false)
         {
+            $sql = "SELECT car_id, marka, model, year_car, engine_capacity, color, max_speed, price FROM cars";
           
                     $sql .= " WHERE "."car_id" .'='.$this->link->quote($param[0]).' AND ';
        
