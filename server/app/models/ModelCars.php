@@ -18,7 +18,7 @@ class ModelCars extends RestServer
                 $sql .= " WHERE ";
                 foreach ($param as $key => $val)
                 {
-                    $sql .= $key .'='.$this->link->quote($val).' AND ';
+                    $sql .= "car_id" .'='.$this->link->quote($val).' AND ';
                 }
                 $sql = substr($sql, 0, -5);
             }
