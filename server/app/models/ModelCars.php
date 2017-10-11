@@ -31,7 +31,7 @@ class ModelCars extends RestServer
              return false;
         }*/
         return $data;
-        }elseif( $param === false)
+        }elseif( $param == false)
         {
               $sql = "SELECT car_id, marka, model, year_car, engine_capacity, color, max_speed, price FROM cars";
               $sth = $this->link->prepare($sql);
