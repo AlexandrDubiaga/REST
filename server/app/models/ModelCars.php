@@ -11,7 +11,7 @@ class ModelCars extends RestServer
     public function getCars($param=false)
     {
        
-       if($param[0] == "")
+       if($param[0] == "" || $param[0]=".txt" || $param[0]=".json" || $param[0]=".html" || $param[0]=".xml" )
        {
          $sql = "SELECT car_id, marka, model, year_car, engine_capacity, color, max_speed, price FROM cars";
               $sth = $this->link->prepare($sql);
