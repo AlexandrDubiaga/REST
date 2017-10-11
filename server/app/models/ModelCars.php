@@ -18,7 +18,6 @@ class ModelCars extends RestServer
           }
                 $sql = substr($sql, 0, -5);
             
-        }
         var_dump($sql);
         $sth = $this->link->prepare($sql);
         $result = $sth->execute();
