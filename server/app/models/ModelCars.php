@@ -31,14 +31,13 @@ class ModelCars extends RestServer
              return false;
         }*/
         return $data;
-        }elseif( $param[0] === "")
-        {
+        }
               $sql = "SELECT car_id, marka, model, year_car, engine_capacity, color, max_speed, price FROM cars";
               $sth = $this->link->prepare($sql);
                $result = $sth->execute();
              $data = $sth->fetchAll(PDO::FETCH_ASSOC);
                return $data;
-        }
+        
             
        
     }
