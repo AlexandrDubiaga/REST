@@ -14,7 +14,7 @@ class ModelCars extends RestServer
         if ($param !== false)
         {
           
-                    $sql .= "car_id" .'='.$this->link->quote($param[0]).' AND ';
+                    $sql .= "WHERE"."car_id" .'='.$this->link->quote($param[0]).' AND ';
           }
                 $sql = substr($sql, 0, -5);
             
